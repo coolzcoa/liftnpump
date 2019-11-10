@@ -34,6 +34,17 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'sitepoint-devise.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
 
+  config.action_mailer.default_url_options = { :host => "https://boiling-citadel-86479.herokuapp.com/"}
+    ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.smtp_settings = {
+    address: ‘smtp.sendgrid.net’,
+    port: “25”,
+    domain: ‘heroku.com’,
+    user_name: ENV[“GMAIL_USERNAME”],
+    password: ENV[“GMAIL_PASSWORD”],
+    authentication: ‘plain’,
+    enable_starttls_auto: true
+ }
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
