@@ -32,6 +32,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
 
+  config.action_mailer.default_options = { from: "likith.naga.com" }
+
   config.action_mailer.default_url_options = { :host => "https://boiling-citadel-86479.herokuapp.com/"}
     ActionMailer::Base.delivery_method = :smtp
     ActionMailer::Base.smtp_settings = {
