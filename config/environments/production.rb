@@ -32,15 +32,20 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: 'sitepoint-devise.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
 
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            'likith.naga@yopmail.com',
-    password: '',
-    authentication:       'plain',
-    enable_starttls_auto: true }
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: gmail.com,
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
+  # ActionMailer Config
+  config.action_mailer.raise_delivery_errors = true
+  # Send email in development mode.
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
