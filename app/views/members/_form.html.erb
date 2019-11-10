@@ -1,0 +1,51 @@
+<%= form_for(@member) do |f| %>
+
+<%= render "devise/shared/error_messages", resource: @member %>
+<div class="form-group">
+  <%= f.label :status %><br />
+  <%= f.select :status, Member.statuses.map{ |k,v| [k.titleize,k] },{},{ id: "member-select" } %>
+</div>
+
+  <div class="form-group">
+    <%= f.label :package_id %><br />
+    <%= f.select :package_id, Package.all.map{|package| [package.package_type.humanize,package.id]},{},{ id: "package-select" } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :registration_number %><br />
+    <%= f.text_field :registration_number, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, class: 'form-control' %>
+  </div>
+ 
+  <div class="form-group">
+      <%= f.label :phone_number %><br />
+      <%= f.text_field :phone, class: 'form-control' %>
+  </div>
+  
+
+  <div class="form-group">
+      <%= f.label :email_id %><br />
+      <%= f.email_field :email_id, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+      <%= f.label :date_of_birth %><br />
+      <%= f.date_field :date_of_birth, class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+      <%= f.label :date_of_joining %><br />
+      <%= f.date_field :date_of_joining, class: 'form-control' %>
+  </div>
+
+  
+  <div class="actions">
+    <%= f.submit "Create",class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+<%= javascript_include_tag 'members', 'data-turbolinks-track': 'reload' %>

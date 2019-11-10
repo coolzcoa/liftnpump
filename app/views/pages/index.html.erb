@@ -1,0 +1,12 @@
+<% content_for :top_content do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Living In The Hall Of Fame!</h1>
+      <p>Get Started.</p>
+      <p>
+        <%= link_to 'View Existing Members', members_path, class: 'btn btn-primary btn-lg' %>
+        <%= link_to 'View Packages', packages_path, class: 'btn btn-primary btn-lg' %>
+      </p>
+    </div>
+  </div>
+<% end %>

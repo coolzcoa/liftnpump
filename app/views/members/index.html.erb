@@ -1,0 +1,38 @@
+
+    <div class="container">
+      <%=link_to 'Add Member ',new_member_path,class: 'btn btn-primary pull-right' %>
+      <h3>Current Packages</h3>
+      <table id="member-table" class="table table-dark table-bordered table-striped">
+        <thead>
+          <tr>
+            <th> Status </th>
+            <th> Name  </th>
+            <th> Registration Number  </th>
+            <th> Phone Number  </th>
+            <th> Email  </th>
+            <th> Date of Birth  </th>
+            <th> Date of joining  </th>
+            <th> Actions(s) </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <%- @members.each do |member|%>
+            <tr>
+              <td><%= member.status %></td>
+              <td><%= member.name %></td>
+              <td><%= member.registration_number %></td>
+              <td><%= member.phone %></td>
+              <td><%= member.email_id %></td>
+              <td><%= member.date_of_birth %></td>
+              <td><%= member.date_of_joining %></td>
+
+              <td><%=link_to 'Edit',edit_member_path(member) %></td>
+
+            </tr>
+          <%-end %>
+        </tbody>
+      </table>
+      <%= javascript_include_tag 'members', 'data-turbolinks-track': 'reload' %>
+    </div>
+

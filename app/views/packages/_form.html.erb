@@ -1,0 +1,19 @@
+<%= form_for(@package) do |f| %>
+
+  <%= render "devise/shared/error_messages", resource: @package %>
+  <div class="form-group">
+    <%= f.label :package_type %><br />
+    <%= f.select :package_type, Package.package_types.map{ |k,v| [k.titleize,k] },{},{ id: "package-select" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price %><br />
+    <%= f.number_field :price,step: 0.01,class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create",class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+<%= javascript_include_tag 'packages', 'data-turbolinks-track': 'reload' %>

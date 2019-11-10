@@ -1,0 +1,23 @@
+
+    <div class="container">
+      <h3>Current Packages</h3>
+      <table id="package-table" class="table table-dark table-bordered table-striped">
+        <thead>
+          <tr>
+            <th> Package </th>
+            <th> Price  </th>
+            <th> Action(s)  </th>
+          </tr>
+        </thead>
+        <tbody>
+          <%- @packages.each do |package|%>
+            <tr>
+              <td><%= package.package_type.capitalize.humanize%></td>
+              <td><%= package.price %></td>
+              <td><%=link_to 'edit',edit_package_path(package),class: 'edit' %></td>
+            </tr>
+          <%-end %>
+        </tbody>
+      </table>
+      <%= javascript_include_tag 'packages', 'data-turbolinks-track': 'reload' %>
+    </div>
