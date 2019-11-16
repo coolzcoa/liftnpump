@@ -12,12 +12,30 @@
             <th> Email  </th>
             <th> Date of Birth  </th>
             <th> Date of joining  </th>
+            <th> Package Renewal Date  </th>
+            <th> Package Ending Date  </th>
+            <th> Current Package  </th>
             <th> Actions(s) </th>
 
           </tr>
         </thead>
         <tbody>
           <%- @members.each do |member|%>
+          <%- if member.status == "in_active" %>
+            <tr style="color: red;">
+              <td><%= member.status.titleize %></td>
+              <td><%= member.name %></td>
+              <td><%= member.registration_number %></td>
+              <td><%= member.phone %></td>
+              <td><%= member.email_id %></td>
+              <td><%= member.date_of_birth %></td>
+              <td><%= member.date_of_joining %></td>
+              <td><%= member.date_of_ending %></td>
+              <td><%= member.renewal_date %></td>
+              <td><%= member.package.package_type %></td>
+              <td><%=link_to 'Edit',edit_member_path(member) %></td>
+            </tr>
+          <%- else %>
             <tr>
               <td><%= member.status %></td>
               <td><%= member.name %></td>
@@ -26,10 +44,12 @@
               <td><%= member.email_id %></td>
               <td><%= member.date_of_birth %></td>
               <td><%= member.date_of_joining %></td>
-
+              <td><%= member.date_of_ending %></td>
+              <td><%= member.renewal_date %></td>
+              <td><%= member.package.package_type %></td>
               <td><%=link_to 'Edit',edit_member_path(member) %></td>
-
             </tr>
+          <%-end %>
           <%-end %>
         </tbody>
       </table>

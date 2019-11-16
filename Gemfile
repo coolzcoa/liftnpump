@@ -23,6 +23,7 @@ gem 'bootstrap-sass'
 
 gem 'jquery-turbolinks'
 
+gem 'whenever'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'sprockets', '~>3.0'

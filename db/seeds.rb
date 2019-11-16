@@ -30,3 +30,7 @@ Package.create!(
     package_type: 5,
     price: 15000
 )
+Package.create!(
+    package_type: 0,
+    price: 800
+)
