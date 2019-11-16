@@ -18,6 +18,3 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 1.minute, :environment => "development" do
-  runner "Member.create_notifications"
-end

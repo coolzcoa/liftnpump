@@ -5,7 +5,7 @@ $(function(){
     sortField: 'text',
     create: true,
   });
-  
+
   $('#package-select').selectize({
     sortField: 'text',
     create: true,

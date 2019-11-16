@@ -2,7 +2,7 @@
     <div class="container">
       <%=link_to 'Add Member ',new_member_path,class: 'btn btn-primary pull-right' %>
       <h3>Current Packages</h3>
-      <table id="member-table" class="table table-dark table-bordered table-striped">
+      <table id="member-table" class="table table-dark table-bordered table-striped table-responsive">
         <thead>
           <tr>
             <th> Status </th>
@@ -24,28 +24,28 @@
           <%- if member.status == "in_active" %>
             <tr style="color: red;">
               <td><%= member.status.titleize %></td>
-              <td><%= member.name %></td>
+              <td><%=link_to member.name,member %></td>
               <td><%= member.registration_number %></td>
               <td><%= member.phone %></td>
               <td><%= member.email_id %></td>
               <td><%= member.date_of_birth %></td>
               <td><%= member.date_of_joining %></td>
-              <td><%= member.date_of_ending %></td>
               <td><%= member.renewal_date %></td>
+              <td><%= member.date_of_ending %></td>
               <td><%= member.package.package_type %></td>
               <td><%=link_to 'Edit',edit_member_path(member) %></td>
             </tr>
           <%- else %>
             <tr>
               <td><%= member.status %></td>
-              <td><%= member.name %></td>
+              <td><%=link_to member.name,member %></td>
               <td><%= member.registration_number %></td>
               <td><%= member.phone %></td>
               <td><%= member.email_id %></td>
               <td><%= member.date_of_birth %></td>
               <td><%= member.date_of_joining %></td>
-              <td><%= member.date_of_ending %></td>
               <td><%= member.renewal_date %></td>
+              <td><%= member.date_of_ending %></td>
               <td><%= member.package.package_type %></td>
               <td><%=link_to 'Edit',edit_member_path(member) %></td>
             </tr>

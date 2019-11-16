@@ -1,0 +1,60 @@
+
+    <div class="container">
+        <%=link_to 'Add Payment ',new_member_payment_path(@member),class: 'btn btn-primary pull-right' %>
+        <h3>Current Packages</h3>
+        <table id="member-table" class="table table-dark table-bordered table-striped table-responsive">
+          <thead>
+            <tr>
+              <th> Status </th>
+              <th> Name  </th>
+              <th> Registration Number  </th>
+              <th> Phone Number  </th>
+              <th> Email  </th>
+              <th> Date of Birth  </th>
+              <th> Date of joining  </th>
+              <th> Package Renewal Date  </th>
+              <th> Package Ending Date  </th>
+              <th> Current Package  </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <td><%= @member.status.titleize %></td>
+            <td><%= @member.name %></td>
+            <td><%= @member.registration_number %></td>
+            <td><%= @member.phone %></td>
+            <td><%= @member.email_id %></td>
+            <td><%= @member.date_of_birth %></td>
+            <td><%= @member.date_of_joining %></td>
+            <td><%= @member.renewal_date %></td>
+            <td><%= @member.date_of_ending %></td>
+            <td><%= @member.package.package_type %></td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <%-if @member.payments.blank? %>
+            <span>No Payments to show</span>
+        <%-else%>
+            <table  class="table table-dark table-bordered table-striped table-responsive">
+                <caption><strong>Payments</strong></caption>
+                <thead>
+                    <tr>
+                        <td>Payment Date</td>
+                        <td>Amount</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%- @member.payments.each do |payment| %>
+                        <tr>
+                            <td><%=payment.payment_date %></td>
+                            <td><%=payment.payment_amount %></td>
+                         </tr>
+                    <%- end %>
+-                </tbody>
+            </table>
+        <%-end%>
+        <%= javascript_include_tag 'members', 'data-turbolinks-track': 'reload' %>
+      </div>
+  
+  
