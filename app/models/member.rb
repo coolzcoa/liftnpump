@@ -6,7 +6,7 @@ class Member < ApplicationRecord
     belongs_to :package
     after_commit :date_of_ending, on: [:create]
     after_commit :change_registration_number, on: [:create, :update]
-    has_many :payments
+    has_many :payments, dependent: :destroy
     validates :registration_number,presence: true, uniqueness: true
 
     def date_of_ending
