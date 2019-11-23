@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :payments do
     end
   end
+  resources :registration_numbers
 end

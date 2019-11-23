@@ -6,10 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Package.create!(
-    package_type: 0,
-    price: 800
-)
+
 Package.create!(
     package_type: 1,
     price: 2100
@@ -33,4 +30,7 @@ Package.create!(
 Package.create!(
     package_type: 0,
     price: 800
+)
+RegistrationNumber.create!(
+    reg_no: 900
 )

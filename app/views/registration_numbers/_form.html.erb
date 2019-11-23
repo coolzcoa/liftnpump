@@ -1,0 +1,14 @@
+<%= form_for (@registration_number) do |f| %>
+
+  <%= render "devise/shared/error_messages", resource: @registration_number %>
+  <div class="form-group">
+    <%= f.label :reg_no %><br />
+    <%= f.text_field :reg_no,class: 'form-control' ,required: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create",class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+<%= javascript_include_tag 'packages', 'data-turbolinks-track': 'reload' %>

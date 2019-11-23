@@ -1,7 +1,7 @@
 class CreateMembers < ActiveRecord::Migration[5.1]
   def change
     create_table :members do |t|
-      t.string :registration_number, default:'', null: false
+      t.integer :registration_number, default: 0, null: false
       t.string :name, default:'',null: false
       t.date :date_of_birth
       t.date :date_of_joining

@@ -31,14 +31,15 @@ class MembersController < ApplicationController
 	end
 
 	def associate_package
-		@member = Member.find(params[:member_id])
+	   @member = Member.find(params[:member_id])
 	end
-
-	def finalize_package
-
-	end
-
+	
 	def destroy
+		@member.destroy
+
+		respond_to do |format|
+		  format.html { redirect_to members_path }
+		end
 	end
 
 	def edit
@@ -46,7 +47,7 @@ class MembersController < ApplicationController
 
 	private
 	def member_params
-	  params.require(:member).permit(:status, :registration_number,:name,:phone,:email_id,:date_of_birth,:date_of_joining,:renewal_date,:package_id)
+	  params.require(:member).permit(:status, :address,:registration_number,:name,:phone,:email_id,:date_of_birth,:date_of_joining,:renewal_date,:package_id)
 	end
 	def set_member
 	  @member = Member.find(params[:id])

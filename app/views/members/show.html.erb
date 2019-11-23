@@ -24,11 +24,11 @@
             <td><%= @member.registration_number %></td>
             <td><%= @member.phone %></td>
             <td><%= @member.email_id %></td>
-            <td><%= @member.date_of_birth %></td>
-            <td><%= @member.date_of_joining %></td>
-            <td><%= @member.renewal_date %></td>
-            <td><%= @member.date_of_ending %></td>
-            <td><%= @member.package.package_type %></td>
+            <td><%= @member.date_of_birth.strftime("%d/%m/%Y") %></td>
+            <td><%= @member.date_of_joining.strftime("%d/%m/%Y") %></td>
+            <td><%= @member.renewal_date.strftime("%d/%m/%Y") %></td>
+            <td><%= @member.date_of_ending.strftime("%d/%m/%Y") %></td>
+            <td><%= @member.package.package_type.humanize %></td>
             </tr>
           </tbody>
         </table>
@@ -45,9 +45,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%- @member.payments.each do |payment| %>
+                    <%- @member.payments.order(:payment_date).each do |payment| %>
                         <tr>
-                            <td><%=payment.payment_date %></td>
+                            <td><%=payment.payment_date.strftime("%d/%m/%Y") %></td>
                             <td><%=payment.payment_amount %></td>
                          </tr>
                     <%- end %>
@@ -56,5 +56,4 @@
         <%-end%>
         <%= javascript_include_tag 'members', 'data-turbolinks-track': 'reload' %>
       </div>
-  
-  
+

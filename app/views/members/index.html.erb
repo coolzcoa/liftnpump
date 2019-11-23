@@ -1,6 +1,7 @@
 
     <div class="container">
       <%=link_to 'Add Member ',new_member_path,class: 'btn btn-primary pull-right' %>
+      <%=link_to 'Set Registration Number ',edit_registration_number_path(RegistrationNumber.first),class: 'btn btn-primary pull-right' %>
       <h3>Current Packages</h3>
       <table id="member-table" class="table table-dark table-bordered table-striped table-responsive">
         <thead>
@@ -33,7 +34,7 @@
               <td><%= member.renewal_date %></td>
               <td><%= member.date_of_ending %></td>
               <td><%= member.package.package_type %></td>
-              <td><%=link_to 'Edit',edit_member_path(member) %></td>
+              <td><%=link_to 'Edit',edit_member_path(member) %> | <%=link_to 'Destroy',member_path(member), data: {:confirm => 'Are you sure?'}, :method => :delete %> </td>
             </tr>
           <%- else %>
             <tr>
@@ -47,7 +48,7 @@
               <td><%= member.renewal_date %></td>
               <td><%= member.date_of_ending %></td>
               <td><%= member.package.package_type %></td>
-              <td><%=link_to 'Edit',edit_member_path(member) %></td>
+              <td><%=link_to 'Edit',edit_member_path(member) %> | <%=link_to 'Destroy',member_path(member), data: {:confirm => 'Are you sure?'}, :method => :delete %> </td>
             </tr>
           <%-end %>
           <%-end %>
