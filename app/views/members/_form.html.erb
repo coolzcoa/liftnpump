@@ -13,9 +13,9 @@
   <div class="form-group">
     <%= f.label :registration_number %><br />
     <%- if f.object.registration_number == 0 %>
-      <%= f.text_field :registration_number, class: 'form-control',value: RegistrationNumber.first.reg_no %>
+      <%= f.number_field :registration_number, class: 'form-control',value: RegistrationNumber.first.reg_no %>
     <%- else %>
-      <%= f.text_field :registration_number, class: 'form-control',value: f.object.registration_number %>
+      <%= f.number_field :registration_number, class: 'form-control',value: f.object.registration_number %>
     <%- end %>
   </div>
 
