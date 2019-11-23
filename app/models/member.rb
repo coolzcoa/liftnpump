@@ -26,6 +26,7 @@ class Member < ApplicationRecord
     def change_registration_number
       if RegistrationNumber.first.reg_no == self.registration_number
          new_number = RegistrationNumber.first.reg_no + 1
+         puts new_number
          RegistrationNumber.first.update(reg_no: new_number)
       end
     end
